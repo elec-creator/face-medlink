@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Registrasi Wajah</title>
+  <script src="/static/js/register.js" defer></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      text-align: center;
+      color: #fff;
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 30px 40px 50px; /* ditambah jarak bawah */
+      border-radius: 20px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(8px);
+      text-align: center;
+      transition: all 0.3s ease;
+      width: 600px;
+      max-width: 90vw;
+      position: relative;
+    }
+
+    .container:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 10px 15px;
+      border-radius: 10px;
+      border: none;
+      outline: none;
+      margin-bottom: 20px;
+      font-size: 1rem;
+      text-align: center;
+    }
+
+    .video-container {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      border-radius: 15px;
+      border: 3px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+      margin-bottom: 20px;
+    }
+
+    video, canvas {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 15px;
+    }
+
+    .btn {
+      background: #00bcd4;
+      border: none;
+      color: #fff;
+      padding: 12px 20px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: 0.3s;
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    .btn:hover {
+      background: #0097a7;
+      transform: scale(1.05);
+    }
+
+    .btn-back {
+      background: transparent;
+      border: 2px solid #fff;
+      color: #fff;
+      margin-top: 30px; /* tombol turun */
+      width: auto;
+      padding: 10px 18px;
+      display: inline-block;
+    }
+
+    .btn-back:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: none;
+    }
+
+    #status {
+      margin-top: 15px;
+      font-size: 0.95rem;
+      color: #e0f7fa;
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 20px 15px 40px;
+      }
+      h2 {
+        font-size: 1.5rem;
+      }
+      .btn {
+        font-size: 0.95rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h2>📸 Pendaftaran Wajah</h2>
+  <div class="container">
+    <input type="text" id="name" placeholder="Masukkan nama Anda"><br>
+    <div class="video-container">
+      <video id="video" autoplay></video>
+      <canvas id="canvas" style="display:none;"></canvas>
+    </div>
+    <button id="captureBtn" class="btn">Ambil Foto (1/7)</button>
+    <p id="status">Belum ada foto diambil.</p>
+    <a href="/" class="btn btn-back">Kembali</a>
+  </div>
+</body>
+</html>
